@@ -25,10 +25,9 @@ def verListaOrdenada (lista): #La funcion recibe una lista, verifica si esta ord
     ordenar = lista[:]
     ordenar.sort()
     if lista == ordenar:
-        r= True
+        r=  True
     else:
-        r= False
-
+        r = False
     return (r)
 
 def calcularAnagramas(palabra1,palabra2): #La siguiente funcion recibe 2 cadenas y si son anagramas devuelve true, de lo contrario false
@@ -47,22 +46,21 @@ def calcularAnagramas(palabra1,palabra2): #La siguiente funcion recibe 2 cadenas
     return (a)
 
 def verificarValoresRepetidos (lista): #Funcion que recibe una lista y verifica si alguno de sus elementos se repite, si es asi devuelve True, si no False
-
-    for x in range(0,len(lista)): #Ira recorriendo cada valor de la lista recibida
-        if lista.count(x)>1: #Verificara si cada valor se repite
-            return True
+    nueva= lista[:]
+    for x in nueva: #Ira recorriendo cada valor de la lista recibida
+        if nueva.count(x) > 1: #Verificara si cada valor se repite
+            r= True
         else:
-            return False
+            r= False
+        return (r)
 
 
 def imprimirSoloUnValor (lista): #Funcion que recibe una lista y solo deja 1 valor de cada elemento
-    for x in range (0,len(lista)):
-        nueva= lista [:]
-        if nueva.count (x) > 1:
-            nueva.remove (x)
+    for x in lista:
+        while lista.count (x) > 1:
+            lista.remove(x)
 
-    return nueva
-
+    return (lista)
 
 
 
@@ -70,7 +68,9 @@ def imprimirSoloUnValor (lista): #Funcion que recibe una lista y solo deja 1 val
 def main ():
 
     #Sumar datos:
-    print ("EJERCICIO 1: ")
+    print ("")
+    print ("EJERCICIO 1: Recibe una lista con numeros enteros y regresa una nueva lista con la suma acumulada de datos")
+    print ("")
     lista = [1, 2, 3, 4, 5]
     nuevaLista1= sumarDatos(lista)
     print("La lista: ", lista, "regresa la lista acumulada: ", nuevaLista1)
@@ -83,8 +83,10 @@ def main ():
 
 
     #Quitar elementos:
+    print ("")
     print("----------------------------------------------")
-    print("Ejercicio 2:")
+    print("EJERCICIO 2: Recibe una lista, y regresa una nueva sin el primer y ultimo elemento de la primera")
+    print ("")
     lista4= [1,2,3,4,5]
     listaNueva= quitarElementos(lista4)
     print("Lista original: ", lista4, "regresa: ", listaNueva)
@@ -96,52 +98,60 @@ def main ():
     print("Lista original: ", lista6, "regresa: ", listaNueva3)
 
     #Lista Ordenada
+    print ("")
     print("----------------------------------------------")
-    print("Ejercicio 3:")
+    print("EJERCICIO 3: Recibe una lista y duveulve el valor TRUE si esta ordenada, en caso contrario, devuelve FALSE")
+    print ("")
     lista6 = [1, 2, 3, 4, 5]
     ordenados = verListaOrdenada(lista6)
-    print(ordenados)
+    print ("Lista", lista6, "esta ordenada - ",ordenados)
     lista7 = [1,5,4]
     ordenados2 = verListaOrdenada(lista7)
-    print(ordenados2)
+    print("Lista", lista7, "esta ordenada - ", ordenados2)
     lista8 = ["A","B","C"]
     ordenados3 = verListaOrdenada(lista8)
-    print(ordenados3)
+    print("Lista", lista8, "esta ordenada - ", ordenados3)
     lista9 = ["A","Z","K"]
-    ordenados3 = verListaOrdenada(lista9)
-    print(ordenados3)
+    ordenados4 = verListaOrdenada(lista9)
+    print("Lista", lista9, "esta ordenada - ", ordenados4)
 
 
     #Anagramas
+    print ("")
     print("----------------------------------------------")
-    print("Ejercicio 4:")
+    print("EJERCICIO 4: Recibe dos cadenas y devuelve True si es anagrama, False si no lo es")
+    print ("")
     p1 = ("amor")
     p2= ("rOmA")
     anagrama= calcularAnagramas(p1,p2)
-    print (anagrama)
+    print("Las palabras: ",p1,"y",p2,"son anagramas: ", anagrama)
     p3 = ("hola")
     p4= ("ADIos")
     anagrama2= calcularAnagramas(p3,p4)
-    print (anagrama2)
+    print("Las palabras: ",p3,"y",p4,"son anagramas: ", anagrama2)
 
     #Valor Repetido
+    print ("")
     print("----------------------------------------------")
-    print("Ejercicio 5:")
+    print("EJERCICIO 5: Recibe una lista, regresa True si algun dato esta duplicado, de lo contrario, regresa False")
+    print ("")
     lista10= [1,1,3,4,5]
     repetido= verificarValoresRepetidos(lista10)
-    print (repetido)
+    print ("La lista",lista10,"tiene valores repetidos:",repetido)
     lista11= [1,3,4,5]
     repetido2= verificarValoresRepetidos(lista11)
-    print (repetido2)
+    print("La lista", lista11, "tiene valores repetidos:", repetido2)
 
     #Borrar valores repetidos, solo dejar 1
+    print ("")
     print("----------------------------------------------")
-    print("Ejercicio 6:")
+    print("EJERCICIO 6: Recibe una lista y solo deja 1 de los valores repetidos")
+    print ("")
     lista12 = [1, 1, 3, 4, 5]
     repetidos = imprimirSoloUnValor(lista12)
-    print(repetidos)
-    lista13 = [1, 3, 4, 5]
+    print("La lista:",lista12 ,"sin valores repetidos es:",repetidos)
+    lista13 = [1, 3, 4, 5, 1, 1, 2, 3, 3, 4, 4, 6]
     repetidos2 = imprimirSoloUnValor(lista13)
-    print(repetidos2)
+    print("La lista:", lista13 , "sin valores repetidos es:", repetidos2)
 
 main()
